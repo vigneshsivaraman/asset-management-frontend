@@ -1,0 +1,43 @@
+<div class="container">
+<div class="auth-container" [class.right-panel-active]="!isLoginMode">
+  <!-- Sign In Form -->
+  <div class="form-container sign-in-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <h2>Login</h2>
+      <input formControlName="email" type="email" placeholder="Email" />
+      <input formControlName="password" type="password" placeholder="Password" />
+      <a href="#">Forgot your password?</a>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Sign Up Form -->
+  <div class="form-container sign-up-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <h2>Create Account</h2>
+      <input formControlName="username" type="text" placeholder="Name" />
+      <input formControlName="email" type="email" placeholder="Email" />
+      <input formControlName="password" type="password" placeholder="Password" />
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <!-- Overlay Container -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <!-- Left Panel (for returning users) -->
+      <div class="overlay-panel overlay-left">
+        <h2>Welcome Back!</h2>
+        <p>To keep connected, please login with your credentials</p>
+        <button class="ghost" (click)="toggleMode()">Login</button>
+      </div>
+      <!-- Right Panel (for new users) -->
+      <div class="overlay-panel overlay-right">
+        <h2>Hello, Friend!</h2>
+        <p>Enter your details and start your journey with us</p>
+        <button class="ghost" (click)="toggleMode()">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
